@@ -16,6 +16,63 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 /*! This file is auto-generated */
 !function(s,n){var o,i,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),a=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===a[t]})}function u(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);for(var n=e.getImageData(16,16,1,1),a=0;a<n.data.length;a++)if(0!==n.data[a])return!1;return!0}function f(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\udedf")}return!1}function g(e,t,n,a){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):s.createElement("canvas"),o=r.getContext("2d",{willReadFrequently:!0}),i=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(function(e){i[e]=t(o,e,n,a)}),i}function t(e){var t=s.createElement("script");t.src=e,t.defer=!0,s.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",i=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){s.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+g.toString()+"("+[JSON.stringify(i),f.toString(),p.toString(),u.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"}),r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=function(e){c(n=e.data),r.terminate(),t(n)})}catch(e){}c(n=g(i,f,p,u))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
 </script>
+<style>
+	.menu-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: #31464c;
+		/* deep bluish tint */
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		/* Safari support */
+		z-index: 9999;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		transition: all 0.3s ease;
+	}
+
+	.fullscreen-menu-list a:hover {
+		color: #e09c7f;
+		text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+	}
+
+	.menu-overlay--visible {
+		display: flex;
+	}
+
+	.fullscreen-menu-list {
+		list-style: none;
+		text-align: center;
+		padding: 0;
+	}
+
+	.fullscreen-menu-list li {
+		margin: 1rem 0;
+	}
+
+	.fullscreen-menu-list a {
+		color: #fff;
+		font-size: 1.5rem;
+		text-decoration: none;
+	}
+
+	#primary-mobile-menu .close {
+		display: none;
+	}
+
+	#primary-mobile-menu.is-active .open {
+		display: none;
+	}
+
+	#primary-mobile-menu.is-active .close {
+		display: block;
+	}
+</style>
 <style id='wp-emoji-styles-inline-css'>
 
 	img.wp-smiley, img.emoji {
@@ -189,41 +246,66 @@ body.custom-background { background-color: #31464c; }
 		Skip to content	</a>
 
 	
-<header id="masthead" class="site-header has-logo has-title-and-tagline has-menu">
-
-	
-	<div class="site-logo"><span class="custom-logo-link"><img fetchpriority="high" width="1507" height="266" src="wp-content/uploads/2021/12/logo3-cream%40Half-e1638740559144.png" class="custom-logo" alt="" decoding="async" srcset="https://illuminadimagic.com/wp-content/uploads/2021/12/logo3-cream@Half-e1638740559144.png 1507w, https://illuminadimagic.com/wp-content/uploads/2021/12/logo3-cream@Half-e1638740559144-300x53.png 300w, https://illuminadimagic.com/wp-content/uploads/2021/12/logo3-cream@Half-e1638740559144-1024x181.png 1024w, https://illuminadimagic.com/wp-content/uploads/2021/12/logo3-cream@Half-e1638740559144-768x136.png 768w" sizes="(max-width: 1507px) 100vw, 1507px" /></span></div>
-
-<div class="site-branding">
-
-	
-						<h1 class="site-title">Illuminadi Magic</h1>
-			
-			<p class="site-description">
-			Restore Wonder		</p>
-	</div><!-- .site-branding -->
-	
-	<nav id="site-navigation" class="primary-navigation" aria-label="Primary menu">
-		<div class="menu-button-container">
-			<button id="primary-mobile-menu" class="button" aria-controls="primary-menu-list" aria-expanded="false">
-				<span class="dropdown-icon open">Menu					<svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 6H19.5V7.5H4.5V6ZM4.5 12H19.5V13.5H4.5V12ZM19.5 18H4.5V19.5H19.5V18Z" fill="currentColor"/></svg>				</span>
-				<span class="dropdown-icon close">Close					<svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 10.9394L5.53033 4.46973L4.46967 5.53039L10.9393 12.0001L4.46967 18.4697L5.53033 19.5304L12 13.0607L18.4697 19.5304L19.5303 18.4697L13.0607 12.0001L19.5303 5.53039L18.4697 4.46973L12 10.9394Z" fill="currentColor"/></svg>				</span>
-			</button><!-- #primary-mobile-menu -->
-		</div><!-- .menu-button-container -->
-		<div class="primary-menu-container"><ul id="primary-menu-list" class="menu-wrapper"><li id="menu-item-47" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-47"><a href="index.html" aria-current="page">Home</a></li>
-<li id="menu-item-1032" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1032"><a href="corporate-magic/index.html">Corporate</a></li>
-<li id="menu-item-367" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-367"><a href="close-up/index.html">Close up</a></li>
-<li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-46"><a href="parlor-magic/index.html">Mentalism</a></li>
-<li id="menu-item-368" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-368"><a href="stage/index.html">Stage</a></li>
-<li id="menu-item-414" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-414"><a href="contact-1/index.html">Booking</a></li>
-</ul></div>	</nav><!-- #site-navigation -->
-	
-</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main">
 		<div data-elementor-type="wp-page" data-elementor-id="2" class="elementor elementor-2">
+			<header data-particle_enable="false" data-particle-mobile-disabled="false"
+							class="elementor-section elementor-top-section elementor-element elementor-element-2d842dea elementor-section-full_width elementor-section-content-middle elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle elementor-invisible"
+							data-id="2d842dea" data-element_type="section"
+							data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;slideInDown&quot;}">
+							<div class="elementor-container elementor-column-gap-default">
+								<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-14a5f47a col1"
+									data-id="14a5f47a" data-element_type="column">
+									<div class="elementor-widget-wrap">
+										<nav class="nav-wrapper" aria-label="Primary menu">
+											<button id="primary-mobile-menu" aria-label="Toggle menu">
+												<span class="open">Menu</span>
+												<span class="close">Close</span>
+											</button>
+
+
+										</nav><!-- #site-navigation -->
+									</div>
+								</div>
+								<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3219b011"
+									data-id="3219b011" data-element_type="column">
+									<div class="elementor-widget-wrap elementor-element-populated">
+										<div class="elementor-element elementor-element-7ce49e14 elementor-widget elementor-widget-image"
+											data-id="7ce49e14" data-element_type="widget"
+											data-widget_type="image.default">
+											<div class="elementor-widget-container">
+												<a href="../index.html">
+													<img decoding="async"
+														src="../wp-content/uploads/elementor/thumbs/logo3-navy%40Half-e1638766153525-ph3mbcj1xz84lt752a0nudynu8z027ow2eb2806fy8.png"
+														title="logo3-navy@Half" alt="" loading="lazy" /> </a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-807bd85 elementor-hidden-mobile"
+									data-id="807bd85" data-element_type="column" id="bookcol">
+									<div class="elementor-widget-wrap elementor-element-populated">
+										<div class="elementor-element elementor-element-46422005 elementor-align-right animated-slow elementor-invisible elementor-widget elementor-widget-button"
+											data-id="46422005" data-element_type="widget"
+											data-settings="{&quot;_animation&quot;:&quot;slideInRight&quot;,&quot;_animation_delay&quot;:1000}"
+											data-widget_type="button.default">
+											<div class="elementor-widget-container">
+												<div class="elementor-button-wrapper">
+													<a class="elementor-button elementor-button-link elementor-size-sm"
+														href="../contact-1/index.html">
+														<span class="elementor-button-content-wrapper">
+															<span class="elementor-button-text">Book a Show</span>
+														</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</header>
 						<section data-particle_enable="false" data-particle-mobile-disabled="false" class="elementor-section elementor-top-section elementor-element elementor-element-db236e8 elementor-section-full_width elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle" data-id="db236e8" data-element_type="section">
 							<div class="elementor-background-overlay"></div>
 							<div class="elementor-container elementor-column-gap-default">
@@ -1168,7 +1250,26 @@ var localize = {"ajaxurl":"https:\/\/illuminadimagic.com\/wp-admin\/admin-ajax.p
 var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselWrapperAriaLabel":"Carousel | Horizontal scrolling: Arrow Left & Right","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":true},"version":"3.24.7","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"container_grid":true,"e_swiper_latest":true,"e_nested_atomic_repeaters":true,"e_onboarding":true,"home_screen":true,"ai-layout":true,"landing-pages":true,"link-in-bio":true,"floating-buttons":true},"urls":{"assets":"https:\/\/illuminadimagic.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/illuminadimagic.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/illuminadimagic.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"43631fc50b"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet","viewport_laptop"],"global_image_lightbox":"yes","lightbox_enable_zoom":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":2,"title":"Magician%20in%20Nashville%20and%20Atlanta%20%7C%20Adi%20the%20Magician","excerpt":"","featuredImage":false}};
 </script>
 <script src="wp-content/plugins/elementor/assets/js/frontend.min52dd.js?ver=3.24.7" id="elementor-frontend-js"></script>
+<script>
+	const menuButton = document.getElementById('primary-mobile-menu');
+	const menuOverlay = document.getElementById('fullscreen-menu');
+	const menuList = document.querySelector('.fullscreen-menu-list');
 
+	menuButton.addEventListener('click', () => {
+		const isVisible = menuOverlay.classList.toggle('menu-overlay--visible');
+		menuButton.setAttribute('aria-expanded', isVisible);
+		menuButton.classList.toggle('is-active', isVisible);
+	});
+
+	// Close if clicking outside menu list
+	menuOverlay.addEventListener('click', (e) => {
+		if (!menuList.contains(e.target)) {
+			menuOverlay.classList.remove('menu-overlay--visible');
+			menuButton.setAttribute('aria-expanded', false);
+			menuButton.classList.remove('is-active');
+		}
+	});
+</script>
 </body>
 
 <!-- Mirrored from illuminadimagic.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2025 17:49:50 GMT -->
