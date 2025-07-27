@@ -25,54 +25,57 @@
 	</script>
 	<style>
 		.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #31464c; /* deep bluish tint */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transition: all 0.3s ease;
-}
-.fullscreen-menu-list a:hover {
-  color: #e09c7f;
-  text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
-}
-	
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: #31464c;
+			/* deep bluish tint */
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			/* Safari support */
+			z-index: 9999;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			transition: all 0.3s ease;
+		}
+
+		.fullscreen-menu-list a:hover {
+			color: #e09c7f;
+			text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+		}
+
 		.menu-overlay--visible {
 			display: flex;
 		}
-	
+
 		.fullscreen-menu-list {
 			list-style: none;
 			text-align: center;
 			padding: 0;
 		}
-	
+
 		.fullscreen-menu-list li {
 			margin: 1rem 0;
 		}
-	
+
 		.fullscreen-menu-list a {
 			color: #fff;
 			font-size: 1.5rem;
 			text-decoration: none;
 		}
-		
+
 		#primary-mobile-menu .close {
 			display: none;
 		}
-	
+
 		#primary-mobile-menu.is-active .open {
 			display: none;
 		}
-	
+
 		#primary-mobile-menu.is-active .close {
 			display: block;
 		}
@@ -838,20 +841,20 @@
 	<div id="page" class="site">
 		<div id="fullscreen-menu" class="menu-overlay">
 			<ul class="fullscreen-menu-list">
-			  <li><a href="../index.html">Home</a></li>
-			  <li><a href="../corporate-magic/index.html">Corporate</a></li>
-			  <li><a href="../close-up/index.html">Close up</a></li>
-			  <li><a href="index.html">Mentalism</a></li>
-			  <li><a href="../stage/index.html">Stage</a></li>
-			  <li><a href="../contact-1/index.html">Booking</a></li>
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../corporate-magic/index.html">Corporate</a></li>
+				<li><a href="../close-up/index.html">Close up</a></li>
+				<li><a href="index.html">Mentalism</a></li>
+				<li><a href="../stage/index.html">Stage</a></li>
+				<li><a href="../contact-1/index.html">Booking</a></li>
 			</ul>
-		  </div>
+		</div>
 		<a class="skip-link screen-reader-text" href="#content">
 			Skip to content </a>
 
 
-			
-			
+
+
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main">
@@ -869,8 +872,8 @@
 												<span class="open">Menu</span>
 												<span class="close">Close</span>
 											</button>
-							
-											
+
+
 										</nav><!-- #site-navigation -->
 									</div>
 								</div>
@@ -911,18 +914,6 @@
 								</div>
 							</div>
 						</header>
-						<section data-particle_enable="false" data-particle-mobile-disabled="false"
-							class="elementor-section elementor-top-section elementor-element elementor-element-660f6b3b elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-invisible"
-							data-id="660f6b3b" data-element_type="section" id="sidebar"
-							data-settings="{&quot;animation&quot;:&quot;slideInLeft&quot;,&quot;animation_delay&quot;:1500}">
-							<div class="elementor-container elementor-column-gap-default">
-								<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4025494b"
-									data-id="4025494b" data-element_type="column">
-									<div class="elementor-widget-wrap">
-									</div>
-								</div>
-							</div>
-						</section>
 						<section data-particle_enable="false" data-particle-mobile-disabled="false"
 							class="elementor-section elementor-top-section elementor-element elementor-element-eb74942 elementor-section-full_width elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle elementor-invisible"
 							data-id="eb74942" data-element_type="section"
@@ -1668,26 +1659,26 @@
 	</script>
 	<script src="../wp-content/plugins/elementor/assets/js/frontend.min52dd.js?ver=3.24.7"
 		id="elementor-frontend-js"></script>
-		<script>
-			const menuButton = document.getElementById('primary-mobile-menu');
-			const menuOverlay = document.getElementById('fullscreen-menu');
-			const menuList = document.querySelector('.fullscreen-menu-list');
-			
-			menuButton.addEventListener('click', () => {
-			  const isVisible = menuOverlay.classList.toggle('menu-overlay--visible');
-			  menuButton.setAttribute('aria-expanded', isVisible);
-			  menuButton.classList.toggle('is-active', isVisible);
-			});
-			
-			// Close if clicking outside menu list
-			menuOverlay.addEventListener('click', (e) => {
-			  if (!menuList.contains(e.target)) {
+	<script>
+		const menuButton = document.getElementById('primary-mobile-menu');
+		const menuOverlay = document.getElementById('fullscreen-menu');
+		const menuList = document.querySelector('.fullscreen-menu-list');
+
+		menuButton.addEventListener('click', () => {
+			const isVisible = menuOverlay.classList.toggle('menu-overlay--visible');
+			menuButton.setAttribute('aria-expanded', isVisible);
+			menuButton.classList.toggle('is-active', isVisible);
+		});
+
+		// Close if clicking outside menu list
+		menuOverlay.addEventListener('click', (e) => {
+			if (!menuList.contains(e.target)) {
 				menuOverlay.classList.remove('menu-overlay--visible');
 				menuButton.setAttribute('aria-expanded', false);
 				menuButton.classList.remove('is-active');
-			  }
-			});
-			</script>
+			}
+		});
+	</script>
 </body>
 
 <!-- Mirrored from illuminadimagic.com/parlor-magic/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2025 17:50:40 GMT -->
