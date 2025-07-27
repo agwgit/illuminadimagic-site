@@ -25,39 +25,51 @@
 	</script>
 	<style>
 		.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.9);
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transition: all 0.3s ease;
-}
-
-.menu-overlay--visible {
-  display: flex;
-}
-
-.fullscreen-menu-list {
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
-
-.fullscreen-menu-list li {
-  margin: 1rem 0;
-}
-
-.fullscreen-menu-list a {
-  color: #fff;
-  font-size: 1.5rem;
-  text-decoration: none;
-}
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.9);
+			z-index: 9999;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			transition: all 0.3s ease;
+		}
+	
+		.menu-overlay--visible {
+			display: flex;
+		}
+	
+		.fullscreen-menu-list {
+			list-style: none;
+			text-align: center;
+			padding: 0;
+		}
+	
+		.fullscreen-menu-list li {
+			margin: 1rem 0;
+		}
+	
+		.fullscreen-menu-list a {
+			color: #fff;
+			font-size: 1.5rem;
+			text-decoration: none;
+		}
+		
+		#primary-mobile-menu .close {
+			display: none;
+		}
+	
+		#primary-mobile-menu.is-active .open {
+			display: none;
+		}
+	
+		#primary-mobile-menu.is-active .close {
+			display: block;
+		}
 	</style>
 	<style id='wp-emoji-styles-inline-css'>
 		img.wp-smiley,
@@ -818,12 +830,22 @@
 <body
 	class="wp-singular page-template page-template-elementor_header_footer page page-id-35 custom-background wp-custom-logo wp-embed-responsive wp-theme-twentytwentyone is-dark-theme no-js singular has-main-navigation elementor-default elementor-template-full-width elementor-kit-6 elementor-page elementor-page-35">
 	<div id="page" class="site">
+		<div id="fullscreen-menu" class="menu-overlay">
+			<ul class="fullscreen-menu-list">
+			  <li><a href="../index.html">Home</a></li>
+			  <li><a href="../corporate-magic/index.html">Corporate</a></li>
+			  <li><a href="../close-up/index.html">Close up</a></li>
+			  <li><a href="index.html">Mentalism</a></li>
+			  <li><a href="../stage/index.html">Stage</a></li>
+			  <li><a href="../contact-1/index.html">Booking</a></li>
+			</ul>
+		  </div>
 		<a class="skip-link screen-reader-text" href="#content">
 			Skip to content </a>
 
 
 			
-
+			
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main">
@@ -837,21 +859,12 @@
 									data-id="14a5f47a" data-element_type="column">
 									<div class="elementor-widget-wrap">
 										<nav class="nav-wrapper" aria-label="Primary menu">
-											<button id="menu-toggle" aria-label="Toggle menu">
+											<button id="primary-mobile-menu" aria-label="Toggle menu">
 												<span class="open">Menu</span>
 												<span class="close">Close</span>
 											</button>
 							
-											<div id="fullscreen-menu" class="menu-overlay">
-												<ul class="fullscreen-menu-list">
-												  <li><a href="../index.html">Home</a></li>
-												  <li><a href="../corporate-magic/index.html">Corporate</a></li>
-												  <li><a href="../close-up/index.html">Close up</a></li>
-												  <li><a href="index.html">Mentalism</a></li>
-												  <li><a href="../stage/index.html">Stage</a></li>
-												  <li><a href="../contact-1/index.html">Booking</a></li>
-												</ul>
-											  </div>
+											
 										</nav><!-- #site-navigation -->
 									</div>
 								</div>
@@ -1655,11 +1668,12 @@
 		  
 			menuButton.addEventListener('click', function () {
 			  menuOverlay.classList.toggle('menu-overlay--visible');
+			  this.classList.toggle('is-active');
 		  
-			  const expanded = this.getAttribute('aria-expanded') === 'true';
+			  const expanded = this.getAttribute('aria-expanded') === 'true' || false;
 			  this.setAttribute('aria-expanded', !expanded);
 			});
-		  </script>
+		</script>
 </body>
 
 <!-- Mirrored from illuminadimagic.com/parlor-magic/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2025 17:50:40 GMT -->
