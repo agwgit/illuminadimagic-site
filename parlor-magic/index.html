@@ -25,19 +25,25 @@
 	</script>
 	<style>
 		.menu-overlay {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100vw;
-			height: 100vh;
-			background: rgba(0, 0, 0, 0.9);
-			z-index: 9999;
-			display: none;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			transition: all 0.3s ease;
-		}
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 50, 100, 0.75); /* deep bluish tint */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+.fullscreen-menu-list a:hover {
+  color: #e09c7f;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+}
 	
 		.menu-overlay--visible {
 			display: flex;
@@ -1664,15 +1670,24 @@
 		id="elementor-frontend-js"></script>
 		<script>
 			const menuButton = document.getElementById('primary-mobile-menu');
-const menuOverlay = document.getElementById('fullscreen-menu');
-
-menuButton.addEventListener('click', () => { 
-    menuOverlay.classList.toggle('menu-overlay--visible');
-
-    const expanded = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', !expanded);
-});
-		</script>
+			const menuOverlay = document.getElementById('fullscreen-menu');
+			const menuList = document.querySelector('.fullscreen-menu-list');
+			
+			menuButton.addEventListener('click', () => {
+			  const isVisible = menuOverlay.classList.toggle('menu-overlay--visible');
+			  menuButton.setAttribute('aria-expanded', isVisible);
+			  menuButton.classList.toggle('is-active', isVisible);
+			});
+			
+			// Close if clicking outside menu list
+			menuOverlay.addEventListener('click', (e) => {
+			  if (!menuList.contains(e.target)) {
+				menuOverlay.classList.remove('menu-overlay--visible');
+				menuButton.setAttribute('aria-expanded', false);
+				menuButton.classList.remove('is-active');
+			  }
+			});
+			</script>
 </body>
 
 <!-- Mirrored from illuminadimagic.com/parlor-magic/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Jul 2025 17:50:40 GMT -->
