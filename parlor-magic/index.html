@@ -1664,15 +1664,14 @@
 		id="elementor-frontend-js"></script>
 		<script>
 			const menuButton = document.getElementById('primary-mobile-menu');
-			const menuOverlay = document.getElementById('fullscreen-menu');
-		  
-			menuButton.addEventListener('click', function () {
-			  menuOverlay.classList.toggle('menu-overlay--visible');
-			  this.classList.toggle('is-active');
-		  
-			  const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-			  this.setAttribute('aria-expanded', !expanded);
-			});
+const menuOverlay = document.getElementById('fullscreen-menu');
+
+menuButton.addEventListener('click', () => { 
+    menuOverlay.classList.toggle('menu-overlay--visible');
+
+    const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', !expanded);
+});
 		</script>
 </body>
 
